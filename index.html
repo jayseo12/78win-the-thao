@@ -132,7 +132,6 @@
       isolation: isolate;
       color: #fff;
       overflow: hidden;
-      /* Tone nền đen tuyền phối vàng cam cho 78WIN */
       background:
         linear-gradient(135deg, rgba(10, 10, 10, 0.75), rgba(17, 17, 17, 0.65)),
         var(--hero-bg),
@@ -197,7 +196,6 @@
     }
     .hero h1 span {
       display: block;
-      /* Gradient Vàng -> Vàng Cam */
       background: linear-gradient(180deg, #ffea8c 0%, #ffffff 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -430,8 +428,39 @@
     }
     footer { background: #050505; color: rgba(255, 255, 255, 0.4); padding: 24px 0; font-size: 13px; border-top: 1px solid #1a1a1a; }
     .footer-row { display: flex; justify-content: space-between; gap: 20px; align-items: center; }
-
-    /* ANIMATION */
+ .text-links-section {
+      background: #031409;
+      padding: 40px 0;
+      border-top: 1px solid rgba(0, 168, 89, 0.2);
+    }
+    .text-links-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 12px;
+      align-items: center;
+    }
+    .text-link-item {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.03);
+      color: rgba(255, 255, 255, 0.85);
+      font-size: 13px;
+      font-weight: 500;
+      transition: all 0.25s ease;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+    .text-link-item:hover {
+      border-color: var(--primary-2);
+      color: #fff;
+      background: rgba(255, 123, 0, 0.15);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255, 123, 0, 0.2);
+    }
+ 
     [data-reveal] {
       opacity: 0; transform: translateY(30px);
       transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
@@ -571,6 +600,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a class="btn btn-primary js-link js-text" data-key="footerCta.btn" data-link="register"  rel="nofollow" style="position: relative; z-index: 2;" href="#">ĐĂNG KÝ NGAY <span>↗</span></a>
       </div>
     </section>
+  <section class="text-links-section">
+      <div class="container">
+        <div class="text-links-list" id="textLinksList"></div>
+      </div>
+    </section>
+    
   </main>
 
   <footer>
@@ -594,8 +629,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       /* TOÀN BỘ LINK CTA */
       links: {
-        register: "https://tinyurl.com/pagesdev",
-        login: "https://tinyurl.com/pagesdev",
+        register: "https://choitic88.world/pagesdev",
+        login: "https://choitic88.world/pagesdev",
         detail: "https://ridderride.nl/",
       },
 
@@ -679,6 +714,24 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         { name: "Tuấn Phát", role: "Hội viên VIP", avatar: "TP", quote: "Từ ngày chuyển sang 78WIN chơi bóng tôi thấy yên tâm hẳn. Kèo lên sớm, tỷ lệ chuẩn và quan trọng là rút tiền sòng phẳng.", stars: 5 },
         { name: "Quốc Hưng", role: "Thành viên thân thiết", avatar: "QH", quote: "Giao diện màu tối kết hợp vàng cam nhìn rất sang trọng, dễ soi kèo ban đêm. App trên điện thoại chạy mượt, không bị văng.", stars: 5 },
         { name: "Văn Đức", role: "Người chơi E-sports", avatar: "VĐ", quote: "Rất thích sảnh E-sports của 78WIN, có đầy đủ các giải LOL mình hay xem. Nạp thẻ hay chuyển khoản đều được duyệt nhanh.", stars: 5 }
+      ],
+            textLinks: [
+        { text: "TIC88", url: "https://kerckewijck.nl/" },
+        { text: "789BET", url: "https://aanbestedingai.nl/" },
+        { text: "Jun88", url: "https://productfeedtool.nl" },
+        { text: "Hi88", url: "https://kakahoki.it.com/" },
+        { text: "NEW88", url: "https://dohistory.it.com/" },
+        { text: "Jun88", url: "https://sandystrang.com/" },
+        { text: "78Win", url: "https://silentgpt.it.com/" },
+        { text: "79SODO", url: "https://nepgeldkopen.nl/" },
+        { text: "F8BET", url: "https://azmip.it.com/" },
+        { text: "Jun88", url: "https://kemono.it.com/" },
+        { text: "78Win", url: "https://urnique.nl/" },
+        { text: "79SODO", url: "https://bitfiringcasino.nl/" },
+        { text: "F8BET", url: "https://gresiktoto.it.com/" },
+        { text: "78Win", url: "https://foul.it.com/" },
+        { text: "79SODO", url: "https://slotmancasino.nl/" },
+        { text: "F8BET", url: "https://eakersathome.nl/" }
       ]
     };
 
@@ -827,7 +880,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       `).join("");
     }
 
-    /* Reveal Animation trên cuộn trang */
     const revealItems = $$("[data-reveal]");
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -842,8 +894,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       el.style.transitionDelay = ((index % 4) * 70) + "ms";
       observer.observe(el);
     });
-
-    /* Set current year */
+    const textLinksList = $("#textLinksList");
+    if (textLinksList && SITE_CONFIG.textLinks) {
+      textLinksList.innerHTML = SITE_CONFIG.textLinks.map(link => `
+        <a class="text-link-item" href="${link.url || '#'}" target="_blank" rel="noopener noreferrer">${link.text}</a>
+      `).join("");
+    }
     const yearEl = $("#year");
     if (yearEl) yearEl.textContent = new Date().getFullYear();
   </script>
